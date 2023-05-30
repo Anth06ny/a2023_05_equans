@@ -5,14 +5,27 @@ import java.util.Random
 fun main() {
 
     var car = CarBean("toto", "tata")
+    var car2 = CarBean("toto", "tata")
 
-    val plane = PlaneBean("toto")
-    println(plane.id)
-    plane.name = "tata"
-    println(plane.id)
+//    val plane = PlaneBean("toto")
+//    println(plane.id)
+//    plane.name = "tata"
+//    println(plane.id)
 
 
 }
+
+/* -------------------------------- */
+// API Météo
+/* -------------------------------- */
+data class WeatherBean(var name : String, var main:TempBean, var wind: WindBean)
+data class TempBean(var temp : Double)
+data class WindBean(var speed : Double)
+
+/* -------------------------------- */
+// Exo
+/* -------------------------------- */
+
 
 class PlaneBean(name: String){
     var name = name
@@ -25,6 +38,7 @@ class PlaneBean(name: String){
     var id = name.hashCode()
         private set
 }
+
 
 data class CarBean(val marque: String, var model: String) {
     var color : String? = null
