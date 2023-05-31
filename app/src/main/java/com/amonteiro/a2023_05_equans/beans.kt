@@ -12,22 +12,44 @@ fun main() {
 //    plane.name = "tata"
 //    println(plane.id)
 
+    val random = RandomName()
+    random.add("D")
+    repeat(10) {
+        print(random.next() + " ")
+    }
 
 }
 
 /* -------------------------------- */
 // API Météo
 /* -------------------------------- */
-data class WeatherBean(var name : String, var main:TempBean, var wind: WindBean)
-data class TempBean(var temp : Double)
-data class WindBean(var speed : Double)
+data class WeatherBean(var name: String, var main: TempBean, var wind: WindBean)
+data class TempBean(var temp: Double)
+data class WindBean(var speed: Double)
 
 /* -------------------------------- */
 // Exo
 /* -------------------------------- */
 
+class RandomName {
+    private val list = arrayListOf("A", "B", "C")
+    private var oldValue = ""
 
-class PlaneBean(name: String){
+    fun add(name: String?) = if (!name.isNullOrBlank() && name !in list) list.add(name) else false
+
+    fun next() = list.random()
+
+    fun next2() = Pair(nextDiff(), nextDiff())
+
+
+    fun nextDiff(): String = list.filter { it != oldValue }.random().apply {
+        oldValue = this
+    }
+
+
+}
+
+class PlaneBean(name: String) {
     var name = name
         set(value) {
             field = value
@@ -41,14 +63,14 @@ class PlaneBean(name: String){
 
 
 data class CarBean(val marque: String, var model: String) {
-    var color : String? = null
+    var color: String? = null
 }
 
-class StudentBean(val name : String) {
+class StudentBean(val name: String) {
     var note = 0
 }
 
-class PrintRandomIntBean(var max : Int){
+class PrintRandomIntBean(var max: Int) {
     val random = Random()
 
     init {
