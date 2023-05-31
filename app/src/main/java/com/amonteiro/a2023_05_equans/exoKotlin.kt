@@ -1,6 +1,18 @@
 package com.amonteiro.a2023_05_equans
 
+import kotlin.concurrent.thread
+
 fun main() {
+
+
+
+
+
+
+
+
+
+
 //    Créer une variable v1 de type String et y mettre la chaine "toto"
     var v1 = "toto"
     println(v1.uppercase())
