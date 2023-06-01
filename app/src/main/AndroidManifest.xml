@@ -13,6 +13,9 @@
         android:theme="@style/Theme.A2023_05_equans"
         tools:targetApi="31">
         <activity
+            android:name=".WeatherActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
